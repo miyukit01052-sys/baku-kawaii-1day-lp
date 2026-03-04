@@ -194,10 +194,11 @@ a {
 .hero-title .highlight {
   color: var(--color-white);
   background: var(--color-primary);
-  padding: 0 10px;
+  padding: 4px 12px;
   border-radius: 8px;
   display: inline-block;
   transform: rotate(-2deg);
+  white-space: nowrap;
 }
 
 .hero-description {
@@ -874,7 +875,7 @@ a {
 /* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 1.8rem;
+    font-size: clamp(1.1rem, 5vw, 1.8rem);
   }
 
   .profile-wrapper {
