@@ -106,4 +106,39 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // --- Kirakira Sparkle Effect ---
+    function createSparkles() {
+        const sparkleContainer = document.createElement('div');
+        sparkleContainer.className = 'sparkle-container';
+        document.body.appendChild(sparkleContainer);
+
+        const sparkleCount = 40; // Adjust for more/less density
+        const symbols = ['✨', '✦', '✧', '🤍'];
+
+        for (let i = 0; i < sparkleCount; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'random-sparkle';
+
+            // Randomly select a symbol
+            sparkle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+            // Random positioning, size, and animation duration
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            const size = Math.random() * 1.5 + 0.5; // 0.5rem to 2rem
+            const duration = Math.random() * 4 + 3; // 3s to 7s
+            const delay = Math.random() * 5; // 0s to 5s delay
+
+            sparkle.style.left = `${left}vw`;
+            sparkle.style.top = `${top}vh`;
+            sparkle.style.fontSize = `${size}rem`;
+            sparkle.style.animationDuration = `${duration}s`;
+            sparkle.style.animationDelay = `${delay}s`;
+
+            sparkleContainer.appendChild(sparkle);
+        }
+    }
+
+    createSparkles();
 });

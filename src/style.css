@@ -45,9 +45,8 @@ body {
   z-index: 1;
 }
 
-/* Kirakira Background */
-body::before {
-  content: '';
+/* Kirakira Sparkle Background (JS Generated) */
+.sparkle-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -55,34 +54,36 @@ body::before {
   height: 100vh;
   z-index: 99;
   pointer-events: none;
-  background-image:
-    radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 4%),
-    radial-gradient(circle at 85% 30%, rgba(255, 200, 220, 0.8) 0%, rgba(255, 200, 220, 0) 5%),
-    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 3%),
-    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 2%),
-    radial-gradient(circle at 70% 70%, rgba(255, 218, 185, 0.7) 0%, rgba(255, 218, 185, 0) 6%);
-  background-size: 150px 150px;
-  animation: sparkle-move 20s linear infinite, sparkle-opacity 4s ease-in-out infinite alternate;
-  opacity: 0.6;
+  overflow: hidden;
 }
 
-@keyframes sparkle-move {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-
-  100% {
-    transform: translateY(-150px) rotate(5deg);
-  }
+.random-sparkle {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 10px rgba(255, 182, 193, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  animation-name: float-sparkle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
-@keyframes sparkle-opacity {
+@keyframes float-sparkle {
   0% {
-    opacity: 0.3;
+    transform: translateY(10vh) scale(0.5) rotate(0deg);
+    opacity: 0;
   }
 
-  100% {
+  20% {
     opacity: 0.8;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(-20vh) scale(1.2) rotate(45deg);
+    opacity: 0;
   }
 }
 
