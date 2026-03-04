@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '.feature-card',
         '.step-card',
         '.profile-wrapper',
+        '.target-box',
         '.pricing-intro',
         '.pricing-card',
         '.form-intro',

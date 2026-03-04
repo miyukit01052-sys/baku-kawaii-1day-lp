@@ -494,6 +494,86 @@ a {
   margin-top: 24px;
 }
 
+/* Target Audience Section */
+.target-audience {
+  background: var(--color-white);
+}
+
+.target-audience .container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.target-box {
+  background: var(--color-bg-light);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.target-box.recommended {
+  border-color: rgba(255, 105, 180, 0.3);
+  background: linear-gradient(to bottom right, #fffafb, #fff0f5);
+}
+
+.target-box.not-recommended {
+  border-color: rgba(200, 200, 200, 0.2);
+  background: #fafafa;
+}
+
+.box-title {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--color-secondary);
+}
+
+.target-box.not-recommended .box-title {
+  color: #666;
+}
+
+.target-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.target-list li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.target-list li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: bold;
+}
+
+.target-box.recommended .target-list li::before {
+  content: '✓';
+  color: var(--color-primary);
+  font-size: 1.2rem;
+}
+
+.target-box.not-recommended .target-list li::before {
+  content: '×';
+  color: #999;
+  font-size: 1.2rem;
+}
+
+.target-list strong {
+  color: var(--color-secondary);
+  font-weight: 800;
+}
+
 /* Pricing Section */
 .pricing {
   background: linear-gradient(180deg, #fffafb 0%, #fff0f5 100%);
