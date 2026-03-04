@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sparkleContainer.className = 'sparkle-container';
         document.body.appendChild(sparkleContainer);
 
-        const sparkleCount = 40; // Adjust for more/less density
+        const sparkleCount = 50; // Increased slightly since they are edges
         const symbols = ['✨', '✦', '✧', '🤍'];
 
         for (let i = 0; i < sparkleCount; i++) {
@@ -123,11 +123,20 @@ document.addEventListener('DOMContentLoaded', () => {
             // Randomly select a symbol
             sparkle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
 
-            // Random positioning, size, and animation duration
-            const left = Math.random() * 100;
+            // Position bias: mostly on the left (0-25%) or right (75-100%) edges
+            let left;
+            const region = Math.random();
+            if (region < 0.4) {
+                left = Math.random() * 25; // Left edge
+            } else if (region < 0.8) {
+                left = Math.random() * 25 + 75; // Right edge
+            } else {
+                left = Math.random() * 50 + 25; // Center (fewer here)
+            }
+
             const top = Math.random() * 100;
-            const size = Math.random() * 1.5 + 0.5; // 0.5rem to 2rem
-            const duration = Math.random() * 4 + 3; // 3s to 7s
+            const size = Math.random() * 1.2 + 0.4; // 0.4rem to 1.6rem (slightly smaller)
+            const duration = Math.random() * 5 + 4; // 4s to 9s (slower, gentler)
             const delay = Math.random() * 5; // 0s to 5s delay
 
             sparkle.style.left = `${left}vw`;
@@ -135,6 +144,11 @@ document.addEventListener('DOMContentLoaded', () => {
             sparkle.style.fontSize = `${size}rem`;
             sparkle.style.animationDuration = `${duration}s`;
             sparkle.style.animationDelay = `${delay}s`;
+
+            // Make center sparkles even more transparent to not block text
+            if (left > 25 && left < 75) {
+                sparkle.style.opacity = '0.3';
+            }
 
             sparkleContainer.appendChild(sparkle);
         }
