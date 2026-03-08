@@ -468,9 +468,16 @@ a {
 
 .step-content h3 {
   color: var(--color-secondary);
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 5px;
   margin-top: 10px;
+}
+
+.step-subtitle {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 12px;
 }
 
 .step-content p {
